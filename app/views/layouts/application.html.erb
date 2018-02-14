@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fleet</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div id="info">
+	  	<p>Office: (703) 300-7244</p>
+		<p>Cell: (571) 447-1691</p>
+	</div>
+
+	<h1 id="title">Fleet Sedan Service LLC</h1>
+	<div id="login_create_sidebar">
+		<h4 id="login_title">Login</h4>
+		<%= form_tag('/users/login', :method => 'post') do %>
+			<div id="login_email">Email <%= text_field_tag(:q) %></div>
+			<div id="login_password">Password <%= text_field_tag(:q) %></div>
+			<div id="login_submit"><%= submit_tag('Login') %></div>
+		<p id="create_account_title"><%= link_to 'Create account', action: 'index', controller: 'users' %></p>
+	</div>
+	<ul id="navbar1">
+		<li><h2>Services</h2></li>
+		<li><h2>Rates and Reservations</h2></li>
+		<li><h2>About Us</h2></li>
+		<li><h2>Contact Us</h2></li>
+	</ul>
+	<ul id="navbar2">
+		<li><h4>Airports</h4></li>
+		<li><h4>Events</h4></li>
+		<li><h4>Weddings</h4></li>
+		<li><h4>Trips</h4></li>
+	</ul>
+	<% end %>
+    <%= yield %>
+  </body>
+</html>

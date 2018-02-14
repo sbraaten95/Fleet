@@ -1,0 +1,44 @@
+<ul id="page">
+
+<li id="login">
+<h2>Have an account?</h2>
+<h3>Login</h3>
+
+
+<%= form_tag('/users/login', :method => 'post') do %>
+	<p>Email <%= text_field_tag(:q) %></p>
+	<p>Password <%= text_field_tag(:q) %></p>
+	<p><%= submit_tag('Login') %></p>
+<% end %>
+
+<h3>Create account</h3>
+
+<%= link_to 'Create account', action: 'index', controller: 'users' %>
+
+</li>
+
+<li id="reserve">
+<h2 id="make">Make a Reservation</h2>
+
+<%= form_for :reservation do |f| %>
+	<ul id="form_info">
+		<li id="first">
+			<p>First Name <%= f.text_field :first_name %></p>
+			<p>Last Name <%= f.text_field :last_name %></p>
+			<p>Phone Number <%= f.text_field :phone %></p>
+			<p>Email <%= f.text_field :email %></p>
+		</li>
+		<li id="second">
+			<p>Reservation Date <%= f.date_select(:date, :order => [:month, :day, :year]) %></p>
+			<p>Pickup Time <%= f.time_select :pickuptime %></p>
+			<p>Dropoff Time <%= f.time_select :dropofftime %></p>
+			<p>Pickup Address <%= f.text_field :pickupaddress %></p>
+			<p>Dropoff Address <%= f.text_field :dropoffaddress %></p>
+			<p>Additional Information <%= f.text_field :extra %></p>
+			<p><%= f.submit %></p>
+		</li>
+	</ul>
+	
+<% end %>
+</li>
+</ul>
